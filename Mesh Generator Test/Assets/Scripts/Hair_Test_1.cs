@@ -17,7 +17,7 @@ public class Hair_Test_1 : MonoBehaviour
         // SIZE SETTINGS
         public int xSize = 20;
         public int zSize = 20;   
-        public int ySize = 5;  
+        public int ySize = 20;  
 
         // LOCATIONS SETTINGS
         public float xLocation= 1f;
@@ -25,7 +25,7 @@ public class Hair_Test_1 : MonoBehaviour
        
         // BEHAVIOUR SETTINGS
         public float offset = 0.2f;
-        public float amplitude = 2f;
+        public float amplitude = 0.5f;
         public float speed = 5f;
     
 
@@ -49,7 +49,7 @@ public class Hair_Test_1 : MonoBehaviour
 // ___________________________CREATER SHAPE - PASTE TRIANGLES HERE________________________________//
 
     void CreateShape () 
-    {int i = 0;
+    {
         // CREATE VERTICES // SYNTAX SPEZIFIZIERT ELEMENTE IN ARRAY
        vertices = new Vector3[(xSize+1)*(zSize + 1)*(ySize+1)];
 
@@ -100,10 +100,10 @@ public class Hair_Test_1 : MonoBehaviour
               // VERTICES INDEX, POSITIONS, MOVEMENTS
                 float y = Mathf.Sin((Time.time * speed + i + offset)) * amplitude ;
             
-              vertices[i] = new Vector3(x+xLocation,y,z+zLocation);
+              vertices[i] = new Vector3(x+xLocation,y+h,z+zLocation);
               i++; 
+              
               }
-
             }  
           } 
     }
